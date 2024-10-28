@@ -14,7 +14,14 @@ class Controller:
         self._mese = 0
 
     def handle_umidita_media(self, e):
-        pass
+        self._view.lst_result.controls.clear()
+        self._view.lst_result.controls.append(ft.Text("L'umidità media è:"))
+        listUmi = self._model.getUmidita(self._mese)
+        for loc, umi in listUmi:
+            self._view.lst_result.controls.append(ft.Text(f"{loc}: {umi}"))
+        self._view.update_page()
+
+
 
 
 
